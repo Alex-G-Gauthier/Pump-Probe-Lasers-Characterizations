@@ -1,0 +1,21 @@
+quantity,reported_result,confidence,basis_and_limitation
+532 nm optical power,>130 mW,Moderate,Direct PM100D/S121C reading reported as a strict lower bound; no calibration certificate or repeat series supplied.
+532 nm sensor-plane centroid and beam dimensions,Per-frame values in spatial tables,Moderate,"Direct camera data and independent repeats; limited by saturation, no dedicated dark frame, background structure, and multi-spot reflections."
+532 nm beam ellipticity/orientation,Per-frame values in spatial tables,Moderate,Meaningful for the selected highest-intensity lobe; sensitive to aperture and background.
+"532 nm M2, major axis",2.539 provisional,Low / provisional,"Caustic fit exists, but saturation near waist, limited valid z coverage, unknown z uncertainty, and secondary structure prevent a standards-grade result."
+"532 nm M2, minor axis",1.814 provisional,Low / provisional,Same limitations as major axis.
+1064 nm repetition rate,Approximately 200.0003 kHz,High for measurement chain,"Long records and hysteretic trigger-edge detection agree across modes; this is trigger-chain repetition rate, not a standalone intrinsic-jitter certification."
+ps electrical response FWHM,20.8896 ns,High as electrical width,The exported waveform supports this electrical response width; it is not the optical pulse duration.
+1 ns electrical response FWHM,32.3680 ns,High as electrical width,The detector/electronics do not resolve a 1 ns optical pulse.
+65 ns electrical response FWHM,49.0250 ns,Moderate as electrical width,Partially resolved but detector-convolved and affected by ringing; not a calibrated optical duration.
+ps pulse energy,>6.75 pJ,Moderate lower bound,Derived exactly from the reported lower-bound average power and measured/nominal 200 kHz rate.
+1 ns pulse energy,>47.0 pJ,Moderate lower bound,Derived exactly from the reported lower-bound average power and 200 kHz rate.
+65 ns pulse energy,1.65-1.70 nJ,Moderate approximate range,Derived from the reported 330-340 uW range at 200 kHz.
+Peak power in any pulsed mode,Not determined,Not supported,Requires trustworthy optical pulse shape and duration; detector traces are insufficient.
+532 nm spectral center,Near 532 nm; see spectral tables,Moderate,"Visible Hg references bracket the green wavelength, but repeatability and configuration-specific calibration still govern accuracy."
+532 nm intrinsic linewidth,Not determined,Not supported,Narrow features are undersampled and instrument limited.
+1064 nm narrow spectral center,Approximately 1059-1061 nm measured,Low absolute confidence,No near-IR reference; visible offset calibration is extrapolated far beyond 546.1 nm.
+1064 nm narrow intrinsic linewidth,Not determined,Not supported,Strong slit dependence and insufficient sampling demonstrate instrument limitation.
+ps spectral FWHM,8.492-9.606 nm,Moderate to high,Broad feature is well sampled; width is more robust than absolute center wavelength.
+ps transform-limit lower bound,0.170-0.192 ps Gaussian; 0.122-0.137 ps sech^2,Conditional,Calculated from spectral intensity width assuming a pulse shape and zero spectral phase; not a measured temporal duration.
+Absolute wavelength accuracy near 1064 nm,Unverified,Not established,Requires a traceable near-IR line/reference measured with the same grating and slit configuration.

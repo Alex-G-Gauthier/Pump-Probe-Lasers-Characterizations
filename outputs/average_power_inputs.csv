@@ -1,0 +1,4 @@
+mode,power_relation,average_power_mW,power_low_mW,power_high_mW,notes
+picosecond,>,0.00135,0.00135,,PM100D+S121C; after F280APC-1064 collimator; before attenuation; strict lower bound
+1_ns,>,0.0094,0.0094,,PM100D+S121C; after F280APC-1064 collimator; before attenuation; strict lower bound
+65_ns,~,0.333,0.33,0.34,PM100D+S121C; observed 330-340 uW; after F280APC-1064 collimator; before attenuation

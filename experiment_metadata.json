@@ -1,0 +1,252 @@
+{
+  "project_version": "4.0-fixed",
+  "analysis_date": "2026-08-31",
+  "reporting_policy": {
+    "significant_figures": "At least three significant figures where supported by sampling and calibration; extra digits are retained in CSV files for reproducibility, not as an uncertainty claim.",
+    "uncertainty_policy": "Use observed repeatability standard deviations when independent repeats exist. Treat curve-fit covariance as conditional fit-only uncertainty. Do not invent confidence levels or combine manufacturer specifications into a formal uncertainty budget without the missing calibration terms.",
+    "claim_classes": [
+      "supported",
+      "supported_with_caveat",
+      "provisional",
+      "not_supported"
+    ]
+  },
+  "source_532_nm": {
+    "manufacturer": "Coherent",
+    "model": "COMPASS 315M-100",
+    "operating_mode": "continuous wave",
+    "nominal_wavelength_nm": 532,
+    "output_power_mW_user_reported": ">130 mW",
+    "separate_from_gsl106a": true,
+    "warmup_time_min_user_estimate": 2,
+    "manufacturer_power_specification_used": false,
+    "average_power_meter": "Thorlabs PM100D with S121C sensor"
+  },
+  "source_1064_nm": {
+    "manufacturer": "Thorlabs",
+    "model": "GSL106A",
+    "output_coupling": "fiber",
+    "modes_in_dataset": [
+      "picosecond",
+      "1 ns",
+      "65 ns",
+      "CW spectral"
+    ],
+    "external_trigger": true,
+    "intended_repetition_rate_hz": 200000,
+    "warmup_time_min_user_estimate": 2
+  },
+  "spatial_532_nm": {
+    "camera": "Basler acA3088-57uc",
+    "camera_pixel_format": "BayerRG12",
+    "direct_beam_interception": true,
+    "camera_lens_or_relay": false,
+    "transverse_magnification": 1.0,
+    "auto_gain": false,
+    "auto_exposure": false,
+    "color_correction": false,
+    "black_level_or_gamma": "not recorded",
+    "raw_exposure_us_from_filenames": 8,
+    "user_recollection_exposure_range_us": [
+      8,
+      16
+    ],
+    "raw_dark_frames": false,
+    "legacy_png_background_reference": true,
+    "attenuation": "1 inch Thorlabs reflective ND filters, used within rated range according to user",
+    "beam_path": [
+      "reflective ND filter(s)",
+      "one mirror",
+      "camera sensor"
+    ],
+    "primary_lobe_rule": "highest-intensity spot is the intended beam",
+    "no_lens_z_origin": "arbitrary zero",
+    "focused_z_origin": "focusing lens plane",
+    "positive_z_direction": "farther from focusing lens",
+    "focusing_lens": "Thorlabs 100 mm plano-convex lens",
+    "lens_orientation_and_part_number": "not recorded",
+    "position_uncertainty": "not recorded",
+    "independent_frames_per_raw_position": 3
+  },
+  "temporal_1064_nm": {
+    "photodetector": "Thorlabs PDA36A legacy model",
+    "photodetector_gain_setting_db": 0,
+    "oscilloscope": "Keysight/Agilent DSO6104A",
+    "oscilloscope_ch1_coupling_user_reported": "DC",
+    "quantitative_ch1_termination": "scope internal 50 ohm",
+    "improper_comparison_termination": "scope 1 Mohm",
+    "external_termination": false,
+    "cable": "BNC, less than 1 m",
+    "trigger_topology": "Agilent 33120A output split by BNC T to GSL106A trigger input and scope CH3",
+    "scope_ch3_role": "function-generator output",
+    "scope_ch3_input": "1 Mohm according to exported setup metadata",
+    "photodetector_beam_capture": "full beam according to user",
+    "beam_splitter": false,
+    "reflective_nd_used_for_modes": [
+      "1 ns",
+      "65 ns"
+    ],
+    "mechanical_chopper_frequency_hz": 987,
+    "mechanical_chopper_effect": "present in some acquisitions for demonstration only; user reports it did not chop the laser",
+    "available_absolute_power_measurement": "Average power measured with Thorlabs PM100D + S121C after the F280APC-1064 collimator and before attenuation: CW >16 mW; ps >1.35 uW; 1 ns >9.4 uW; 65 ns approximately 333 uW (observed 330-340 uW).",
+    "responsivity_at_1064_A_per_W": null,
+    "nd_transmission_at_1064": null,
+    "absolute_power_calibration_ready": false,
+    "average_power_meter": "Thorlabs PM100D with S121C sensor",
+    "power_measurement_location": "After F280APC-1064 collimator, before optical attenuation"
+  },
+  "spectral_532_and_1064_nm": {
+    "spectrometer": "HORIBA iHR550",
+    "spectrometer_focal_length_mm": 550,
+    "spectrometer_entrance_aperture": "f/6.4",
+    "detector": "Synapse Plus CCD; exact detector variant not recorded",
+    "entrance_port": "front entrance",
+    "coupling": "free space",
+    "gratings_g_per_mm": [
+      300,
+      1200,
+      1800
+    ],
+    "grating_blaze_and_order": "not recorded",
+    "order_sorting_filter": "not recorded",
+    "filename_slit_zero_meaning": "fully closed or minimum slit separation; actual gap unknown",
+    "dark_correction": "LabSpec 6 signal-dark",
+    "binning": 1,
+    "accumulations": 1,
+    "rtd_zero_seconds_meaning": "live/real-time display",
+    "mercury_calibration": {
+      "performed": true,
+      "lines_used": "435.8 nm and 546.1 nm Hg lines; offsets manually adjusted until displayed peaks matched",
+      "gratings_calibrated": [
+        300,
+        1200,
+        1800
+      ],
+      "displayed_digits": 4,
+      "calibration_residuals_recorded": false,
+      "near_1064_reference_line_used": false
+    },
+    "spectral_response_correction": false,
+    "polarization_control": false
+  },
+  "unresolved_inputs": [
+    "PDA36A responsivity at 1064 nm for the specific detector",
+    "Reflective ND transmission at 1064 nm for each temporal acquisition",
+    "Spatial z-position uncertainty",
+    "Camera black-level/gamma settings",
+    "Exact focusing-lens part number and orientation",
+    "Spectrometer grating blaze/order-sorter configuration",
+    "Near-1064 nm wavelength reference or calibration residuals",
+    "Synapse Plus detector variant and response calibration"
+  ],
+  "finalized_date": "2026-08-31",
+  "report_scope": "Complete spatial, temporal, spectral, and power characterization using all supplied files.",
+  "sources": {
+    "532_nm": {
+      "manufacturer": "Coherent",
+      "model": "COMPASS 315M-100",
+      "operating_mode": "CW",
+      "nominal_wavelength_nm": 532.0,
+      "reported_output_power": ">130 mW",
+      "warmup_time_approx_min": 2
+    },
+    "1064_nm": {
+      "manufacturer": "Thorlabs",
+      "model": "GSL106A",
+      "operating_modes": [
+        "CW",
+        "ps",
+        "1 ns",
+        "65 ns"
+      ],
+      "nominal_wavelength_nm": 1064.0,
+      "pulsed_repetition_rate_hz": 200000.0,
+      "trigger_mode": "External trigger",
+      "warmup_time_approx_min": 2,
+      "delivery": "Fiber output followed by F280APC-1064 free-space collimator"
+    }
+  },
+  "spatial_setup": {
+    "camera": "Basler acA3088-57uc",
+    "pixel_format": "BayerRG12",
+    "direct_interception": true,
+    "relay_or_camera_lens": false,
+    "automatic_controls": "Auto gain, auto exposure, and color correction disabled",
+    "exposure_us_approx": "8-16",
+    "background_frame_recorded": false,
+    "attenuation": "Thorlabs 1 inch reflective ND filters, used within range",
+    "optical_path": "Laser -> reflective ND filter(s) -> one mirror -> camera",
+    "primary_lobe_rule": "Highest-intensity spot",
+    "z_unit": "cm",
+    "z_convention": "Positive z is farther from the source/lens",
+    "no_lens_origin": "Arbitrary zero",
+    "focused_origin": "Distance measured from focusing lens",
+    "focusing_lens": "Thorlabs plano-convex lens, approximately 100 mm focal length",
+    "independent_repeats": true
+  },
+  "temporal_setup": {
+    "photodetector": "Thorlabs PDA36A (legacy, not PDA36A2)",
+    "photodetector_gain_setting": "0 dB",
+    "oscilloscope": "Keysight/Agilent DSO6104A",
+    "oscilloscope_coupling": "DC",
+    "function_generator": "Agilent 33120A",
+    "trigger_connection": "Function generator output split by BNC T to GSL106A trigger input and oscilloscope CH3",
+    "detector_channel": "CH1",
+    "trigger_monitor_channel": "CH3",
+    "bnc_length": "<1 m",
+    "external_termination": false,
+    "termination_interpretation": "No separate external terminator; records labeled 50 ohm use oscilloscope input termination.",
+    "reflective_nd_used_for": [
+      "1 ns",
+      "65 ns"
+    ],
+    "mechanical_chopper": "Present at 987 Hz for demonstration only; not intercepting/modulating the analyzed beam"
+  },
+  "spectral_setup": {
+    "spectrometer": "HORIBA iHR550",
+    "detector": "Synapse Plus CCD",
+    "spectrometer_focal_length_mm": 550,
+    "spectrometer_aperture": "f/6.4",
+    "entrance": "Front entrance, free-space coupling",
+    "slits": "Fully closed or minimum practical separation unless filename states otherwise",
+    "gratings_grooves_per_mm": [
+      300,
+      1200,
+      1800
+    ],
+    "software": "LabSpec 6",
+    "dark_processing": "signal-dark",
+    "binning": 1,
+    "accumulations": 1,
+    "rtd_interpretation": "0 s means live real-time display",
+    "wavelength_calibration": {
+      "lamp": "Mercury lamp",
+      "visible_reference_lines_nm": [
+        435.8,
+        546.1
+      ],
+      "method": "Grating-specific wavelength offsets adjusted until the two visible peaks matched to four significant figures",
+      "near_1064_reference_available": false,
+      "consequence": "Absolute wavelength accuracy near 1064 nm is unverified; measured widths remain more robust than absolute centers."
+    }
+  },
+  "power_measurement": {
+    "meter_console": "Thorlabs PM100D",
+    "sensor": "Thorlabs S121C",
+    "location": "Free-space output immediately after the F280APC-1064 collimator for the GSL106A; before any attenuation",
+    "attenuation_correction_applied": false,
+    "symbol_semantics": {
+      ">": "strict lower bound",
+      "<": "strict upper bound",
+      "~": "approximate"
+    },
+    "measurements": {
+      "COMPASS_532_CW": ">130 mW",
+      "GSL106A_CW": ">16 mW",
+      "GSL106A_ps_200kHz": ">1.35 uW",
+      "GSL106A_1ns_200kHz": ">9.4 uW",
+      "GSL106A_65ns_200kHz": "~333 uW; observed approximately 330-340 uW"
+    },
+    "uncertainty_policy": "No arbitrary combined uncertainty is assigned without the sensor calibration certificate, repeated readings, and environmental/geometry records."
+  }
+}

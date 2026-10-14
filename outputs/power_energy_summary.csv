@@ -1,0 +1,6 @@
+source,wavelength_nm,mode,repetition_rate_Hz,reported_power,bound_type,power_low_W,power_high_W,representative_power_W,pulse_energy_low_J,pulse_energy_high_J,photons_per_pulse_low,photons_per_pulse_high,photon_flux_low_per_s,interpretation
+Coherent COMPASS 315M-100,532.0,CW,,>130 mW,lower bound,0.13,,0.13,,,,,3.481595018112538e+17,CW optical power lower bound at the measurement point.
+Thorlabs GSL106A,1064.0,CW,,>16 mW,lower bound,0.016,,0.016,,,,,8.570080044584709e+16,CW optical power lower bound after the fiber collimator and before attenuation.
+Thorlabs GSL106A,1064.0,ps,200000.0,>1.35 uW,lower bound,1.35e-06,,1.35e-06,6.75e-12,,36155025.18809174,,7231005037618.349,Pulse-energy lower bound. Peak power is not determined because optical pulse duration and phase were not measured.
+Thorlabs GSL106A,1064.0,1 ns,200000.0,>9.4 uW,lower bound,9.4e-06,,9.4e-06,4.7e-11,,251746101.30967584,,50349220261935.164,Pulse-energy lower bound. The PDA36A trace does not resolve a 1 ns optical pulse.
+Thorlabs GSL106A,1064.0,65 ns,200000.0,~333 uW (observed 330-340 uW),observed approximate range,0.00033,0.00034,0.000335,1.65e-09,1.7000000000000001e-09,8837895045.977982,9105710047.371254,1767579009195596.2,"Approximate pulse-energy range. Nominal 65 ns may be used only for a clearly labeled conditional average-within-pulse estimate, not a measured peak power."

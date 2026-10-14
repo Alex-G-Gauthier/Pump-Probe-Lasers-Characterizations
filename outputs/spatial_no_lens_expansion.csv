@@ -1,0 +1,7 @@
+measurement,display_name,category,apparent_radius_slope_mrad,linear_intercept_um,linear_r2,z_min_cm,z_max_cm,interpretation
+d4sigma_x_um,D4sigma x radius,second_moment_sensor_axis,1.0638089702450952,266.49988614390634,0.9997613421177542,0.0,27.0,local expansion slope over measured range; not a far-field divergence or M2
+d4sigma_y_um,D4sigma y radius,second_moment_sensor_axis,1.0763302794309297,256.57446047897804,0.9981194230126954,0.0,27.0,local expansion slope over measured range; not a far-field divergence or M2
+d4sigma_major_um,D4sigma principal-major radius,second_moment_principal_axis,1.0853064405677868,266.15641087112976,0.9999840599032662,0.0,27.0,local expansion slope over measured range; not a far-field divergence or M2
+d4sigma_minor_um,D4sigma principal-minor radius,second_moment_principal_axis,1.0545530711210924,256.9044596698453,0.9989961589211998,0.0,27.0,local expansion slope over measured range; not a far-field divergence or M2
+gaussian_w_major_um,Gaussian 1/e2 major radius,model_dependent_gaussian,1.2641100996727999,284.08398949438987,0.998156219978935,0.0,27.0,local expansion slope over measured range; not a far-field divergence or M2
+gaussian_w_minor_um,Gaussian 1/e2 minor radius,model_dependent_gaussian,1.2316243798770479,274.6008007435436,0.9969897155078339,0.0,27.0,local expansion slope over measured range; not a far-field divergence or M2

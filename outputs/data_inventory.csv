@@ -1,0 +1,5 @@
+family,count,total_bytes,example
+native spatial RAW,36,458901504,Exposure_8us_Position_0cm_ND_4_7_BayerRG12_Focal_No_1.raw
+supplemental spatial PNG,22,188446173,Background_Reference.png
+oscilloscope CSV,19,484128877,Mode_1ns_ND_0_Gain_0db_ExtTrigger_200kHz_Chopper_987Hz_TimeDiv_108us.csv
+HORIBA spectrum,40,727909,Laser_1064nm_CW_Acq_0_5s_Slit_100um_Grad_1200.txt

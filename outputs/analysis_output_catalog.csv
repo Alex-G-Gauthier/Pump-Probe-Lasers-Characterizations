@@ -1,0 +1,5 @@
+file,extension,bytes,rows,columns,column_names
+average_power_inputs.csv,.csv,659,5,11,source | mode | wavelength_nm | repetition_rate_Hz | power_relation | power_value | power_unit | measurement_location | attenuation_state | meter | observed_range
+measurement_confidence_matrix.csv,.csv,3312,20,4,quantity | reported_result | confidence | basis_and_limitation
+power_energy_summary.csv,.csv,1362,5,15,source | wavelength_nm | mode | repetition_rate_Hz | reported_power | bound_type | power_low_W | power_high_W | representative_power_W | pulse_energy_low_J | pulse_energy_high_J | photons_per_pulse_low | photons_per_pulse_high | photon_flux_low_per_s | interpretation
+source_data_inventory.csv,.csv,40101,119,10,source_id | domain | archive_path | file_name | extension | uncompressed_bytes | compressed_bytes | crc32 | sha256_from_source_manifest | analysis_status

@@ -1,0 +1,46 @@
+{
+  "spatial": {
+    "native_raw_frames": 36,
+    "focused_z_positions": 8,
+    "strict_unsaturated_focused_z_positions": 3,
+    "focused_positions_with_primary_saturation": 5,
+    "provisional_principal_axis_m2_range": [
+      1.8142842484612425,
+      2.538670826945663
+    ],
+    "reportable_m2": false,
+    "reason": "only eight focused z positions; waist-region saturation; both measured sides extend less than about two fitted Rayleigh ranges; no z-position uncertainty"
+  },
+  "temporal": {
+    "records": 19,
+    "proper_50ohm_records": 9,
+    "measured_repetition_rate_hz_range_long_records": [
+      200000.2951067357,
+      200000.3837216763
+    ],
+    "electrical_fwhm_ns_by_mode": {
+      "1_ns": 32.36803981342192,
+      "65_ns": 49.02495622471013,
+      "picosecond": 20.88957144518626
+    },
+    "optical_ps_and_1ns_width_reportable": false,
+    "optical_65ns_width_reportable": false,
+    "intrinsic_timing_jitter_reportable": false,
+    "pulse_energy_ready": false
+  },
+  "spectral": {
+    "spectra": 40,
+    "high_count_warning_spectra": 4,
+    "narrow_spectra_with_intrinsic_linewidth_reportable": 0,
+    "picosecond_fwhm_nm_range": [
+      8.492075290839693,
+      9.606157164877914
+    ],
+    "picosecond_gaussian_transform_limit_ps_range": [
+      0.1701725490145709,
+      0.19203042912006688
+    ],
+    "absolute_1064_wavelength_validated": false,
+    "narrow_1059_1061_nm_consistent_with_gsl_nominal_band": true
+  }
+}
