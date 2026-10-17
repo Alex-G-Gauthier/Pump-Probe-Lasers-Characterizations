@@ -74,7 +74,7 @@ python -m ipykernel install --user --name laser-characterization
 The repository does not include the roughly 1.1 GB measurement archive. Extract the original data so that one of these layouts exists:
 
 ```text
-laser-characterization/
+Pump-Probe-Lasers-Characterizations/
     data/
         532 and 1064/
             532nm_Spatial/
@@ -86,7 +86,7 @@ or
 
 ```text
 parent_directory/
-    laser-characterization/
+    Pump-Probe-Lasers-Characterizations/
     532 and 1064/
 ```
 
