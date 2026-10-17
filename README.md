@@ -1,4 +1,4 @@
-# Pump–Probe Laser Characterization (532 nm & 1064 nm)
+# Pump-Probe Laser Characterization
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![Jupyter](https://img.shields.io/badge/notebooks-6-orange)
@@ -8,31 +8,31 @@
   <img src="figures/spectral_1064_modes_v2.png" width="90%" alt="1064 nm spectra in CW, 65 ns and picosecond modes">
 </p>
 
-Spatial, temporal, spectral and power characterization of the two lasers in the
-pump–probe spectroscopy platform I built in **Kim's Club 2.0** at California State
+Spatial, temporal, spectral, and power characterization of the two lasers in the
+pump-probe spectroscopy platform I built in **Kim's Club 2.0** at California State
 University, San Bernardino (PI: Dr. Martin Youngmin Kim):
 
-| Role | Laser | Measured with |
+| Role | Laser | Detector |
 |---|---|---|
-| Pump | Coherent COMPASS 315M-100, 532 nm CW | Basler acA3088-57uc CMOS (beam profile), HORIBA iHR550 + Synapse Plus CCD |
-| Probe | Thorlabs GSL106A, 1064 nm, CW / ps / 1 ns / 65 ns modes at 200 kHz | Thorlabs PDA36A + Keysight DSO6104A, iHR550, Thorlabs PM100D/S121C |
+| Pump | Coherent COMPASS 315M-100, 532 nm CW | Basler acA3088-57uc CMOS (Beam Profile), HORIBA iHR550 + Synapse Plus CCD |
+| Probe | Thorlabs GSL106A, 1064 nm, CW / ps / 1 ns / 65 ns Modes at 200 kHz | Thorlabs PDA36A + Keysight DSO6104A, iHR550, Thorlabs PM100D/S121C |
 
 **Author:** Alex G. Gauthier &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/Alex-G-Gauthier/)
 
 *I set up and took all of the measurements. The analysis code and report were written with AI assistance;
 I directed the analysis and checked the results against the instruments' documentation.*
 
-### Key results
-- **Repetition rate:** 200.0003 kHz, measured across three long records.
-- **Picosecond-mode bandwidth:** 8.49–9.61 nm FWHM, implying a transform-limited
-  duration of 0.17–0.19 ps for a Gaussian pulse (a lower bound, not a measurement).
-- **Pulse energy:** 1.65–1.70 nJ per pulse in 65 ns mode, from average power at 200 kHz.
-- **532 nm beam:** second-moment beam size vs. focus position from native 12-bit RAW frames,
-  with a provisional M² of 2.5 / 1.8 along the principal axes.
+### Key Findings
+- **Repetition Rate:** 200.0003 kHz, measured across three long records.
+- **Picosecond Mode Bandwidth:** 8.49-9.61 nm FWHM, implying a transform limited
+  duration of 0.17-0.19 ps for a Gaussian pulse (a lower bound, not a measurement).
+- **Pulse Energy:** 1.65-1.70 nJ per pulse in 65 ns mode, from average power at 200 kHz.
+- **532 nm Beam:** Second-moment beam size vs. focus position from native 12-bit RAW frames,
+  with a provisional M² (Measured to 1 Rayleigh length instead of 2) of 2.5 / 1.8 along the principal axes.
 
 The analysis is deliberately strict about **what the data can and cannot support**:
-detector-limited pulse widths are not reported as optical pulse durations, and
-instrument-limited linewidths are not reported as intrinsic linewidths. See
+Detector limited pulse widths are not reported as optical pulse durations and
+instrument limited linewidths are not reported as intrinsic linewidths. See
 [`RESULTS_SUMMARY.md`](RESULTS_SUMMARY.md) and the full
 [31-page report](report/Complete_Laser_Characterization_Report.pdf).
 
@@ -47,37 +47,34 @@ precomputed results in `outputs/`; raw-data-only plots are skipped.
 
 ---
 
-## Detailed methods
+## Experimental Setups
 
-This is a reproducible Jupyter project for the supplied spatial, temporal, and spectral measurements. The analysis is deliberately claim-aware: it reports measured numerical quantities while separately stating whether each quantity can be interpreted as an intrinsic laser property.
-
-## Experimental system represented in this project
-
-| Measurement domain | Source and measurement chain |
+| Measurement Domain | Source & Measurement Chain |
 |---|---|
-| 532 nm spatial | Coherent COMPASS 315M-100 CW laser; Thorlabs reflective ND filter(s); one mirror; direct interception by a Basler acA3088-57uc color CMOS sensor; no imaging lens or relay; optional 100 mm plano-convex focusing lens |
-| 1064 nm temporal | Thorlabs GSL106A fiber output; Agilent 33120A external trigger at nominal 200 kHz; legacy Thorlabs PDA36A at 0 dB; Agilent/Keysight DSO6104A; CH1 internally terminated at 50 ohm for quantitative records; CH3 monitors the function-generator output |
-| 532/1064 nm spectral | HORIBA iHR550 imaging spectrometer with Synapse Plus CCD; free-space front-port input; 300, 1200, and 1800 groove/mm gratings; LabSpec signal-dark correction; binning 1; one accumulation |
+| 532 nm Spatial | Coherent COMPASS 315M-100 CW laser; Thorlabs reflective ND filter(s); one mirror; direct interception by a Basler acA3088-57uc color CMOS sensor; no imaging lens or relay; optional 100 mm plano convex focusing lens |
+| 1064 nm Temporal | Thorlabs GSL106A fiber output; Agilent 33120A external trigger at nominal 200 kHz; legacy Thorlabs PDA36A at 0 dB; Agilent/Keysight DSO6104A; CH1 internally terminated at 50 ohm for quantitative records; CH3 monitors the function-generator output |
+| 532/1064 nm Spectral | HORIBA iHR550 imaging spectrometer with Synapse Plus CCD; free-space front-port input; 300, 1200, and 1800 groove/mm gratings; LabSpec signal-dark correction; binning 1; one accumulation |
+| 532/1064 nm Power | Thorlabs S121C & PM100D |
 
-The user-reported 532 nm source output is 130 mW. This value is retained as experimental metadata, not treated as a verified manufacturer specification. The source warm-up was approximately two minutes, which is a limitation for drift-sensitive comparisons.
+The reported 532 nm source output is 130 mW. This value is retained as experimental metadata, not treated as a verified manufacturer specification. The source warm up was greater than two minutes, which is a limitation for drift sensitive comparisons.
 
-## Central scientific verdict
+## Central Conclusions
 
 | Claim | Status |
 |---|---|
-| Selected-lobe 532 nm beam size versus axial position | Supported with caveats: direct pixel scale and three independent frames per position, but no native dark frame and saturation near the focused minimum |
-| Final standards-grade 532 nm M-squared | Not supported by the present scan: only eight focused positions, five saturated waist-region positions, fewer than two fitted Rayleigh ranges on either side, and no recorded z uncertainty |
-| GSL106A repetition rate | Supported as a measurement-chain result: 200000.295 to 200000.384 Hz in the three long 50 ohm records |
-| Electrical pulse response | Supported for the properly terminated records |
-| Optical picosecond, 1 ns, or 65 ns pulse duration | Not established by this detector chain; the first two are unresolved and the 65 ns waveform remains detector-convolved |
-| 532 nm and narrow 1064 nm intrinsic linewidth | Not supported: narrow lines are undersampled and the spectrometer line-spread function was not measured |
-| Picosecond-mode spectral bandwidth | Supported with caveat: 8.492 to 9.606 nm FWHM, well sampled, but not corrected for total spectral response |
-| Transform-limited picosecond duration | Supported only as an ideal lower bound: 0.170 to 0.192 ps for a Gaussian intensity profile |
-| Absolute 1064 nm wavelength | Plausible but not validated: visible mercury calibration was not checked with a near-1064 nm reference |
+| 532 nm beam size versus axial position | Supported with caveats: direct pixel scale and three independent frames per position, but no native dark frame and saturation near the focused minimum |
+| 532 nm M-squared | Not supported by the present scan: only eight focused positions, five saturated waist-region positions, fewer than two fitted Rayleigh ranges on either side, and no recorded distance uncertainty |
+| GSL106A Repetition Rate | Supported as a measurement chain result: 200000.295 to 200000.384 Hz in the three long 50 ohm impedance records |
+| Electrical Pulse Response | Supported for the properly terminated records |
+| Optical Picosecond, 1 ns, and 65 ns Pulse Durations | Not established by this detector chain; the first two are unresolved and the 65 ns waveform remains detector limited |
+| 532 nm & 1064 nm Intrinsic Linewidths | Not supported: narrow lines are under sampled and the spectrometer line spread function was not measured |
+| Picosecond Mode Spectral Bandwidth | Supported with caveat: 8.492 to 9.606 nm FWHM, well sampled, but not corrected for total spectral response |
+| Picosecond Pulse Duration | Supported only as an ideal lower bound: 0.170 to 0.192 ps for a Gaussian intensity profile |
+| Absolute 1064 nm Wavelength | Plausible but not validated: visible mercury calibration was not checked with a near 1064 nm reference |
 
 See `RESULTS_SUMMARY.md` for the full interpretation and numerical tables.
 
-## Project contents
+## Project Contents
 
 - `00_Start_Here.ipynb`: configuration, source identity, dataset inventory, reporting rules, and high-level verdict.
 - `01_Spatial_532nm.ipynb`: native 12-bit Bayer analysis, primary-lobe selection, second moments, Gaussian diagnostics, saturation/clipping checks, repeatability, provisional caustic fits, local no-lens expansion, centroid trajectory, and separate legacy-PNG review.
