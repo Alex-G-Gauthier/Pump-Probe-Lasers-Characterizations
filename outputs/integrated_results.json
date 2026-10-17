@@ -26,7 +26,7 @@
     "optical_ps_and_1ns_width_reportable": false,
     "optical_65ns_width_reportable": false,
     "intrinsic_timing_jitter_reportable": false,
-    "pulse_energy_ready": false
+    "pulse_energy_ready": true
   },
   "spectral": {
     "spectra": 40,

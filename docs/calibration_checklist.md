@@ -6,15 +6,7 @@ This version contains only unresolved items. The setup facts already supplied by
 
 ### Pulsed average power
 
-Enter the measured average power for each GSL106A pulsed mode in `outputs/average_power_inputs.csv`:
-
-```text
-picosecond: ______ mW
-1_ns:       ______ mW
-65_ns:      ______ mW
-```
-
-Also record the power-meter manufacturer/model, calibration date, measurement range, number of repeated readings, and whether the power was measured before or after any ND filter. These values are sufficient for pulse energy through Pavg/f.
+Average powers for the three GSL106A pulsed modes are recorded in `outputs/average_power_inputs.csv` (PM100D/S121C, after the collimator, before attenuation). The picosecond and 1 ns values are lower bounds. Still worth recording: the sensor's calibration date, the measurement range used, and the number and spread of repeated readings, which would turn those bounds into values with an uncertainty.
 
 ### Spatial hardware metadata
 

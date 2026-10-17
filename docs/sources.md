@@ -40,7 +40,7 @@ The following are not manufacturer specifications; they are experimenter-provide
 
 - COMPASS 315M-100 operated as a separate 532 nm CW source, user-reported 130 mW.
 - GSL106A fiber output operated in picosecond, 1 ns, 65 ns, and CW spectral modes at intended 200 kHz for pulsed acquisitions.
-- Approximately two minutes of warm-up.
+- Warm-up of more than two minutes.
 - Direct camera interception; no camera/relay lens; BayerRG12; automatic gain/exposure and color correction disabled.
 - Highest-intensity spatial lobe designated as the real beam.
 - 100 mm Thorlabs plano-convex focusing lens; positive z farther from the lens.
@@ -51,7 +51,7 @@ The following are not manufacturer specifications; they are experimenter-provide
 All unknown settings remain explicitly null or `not recorded` rather than being filled from a similar instrument model.
 
 
-## Additional manufacturer documentation used in Version 3
+## Additional manufacturer documentation (power and calibration)
 
 - Thorlabs, PM100D Compact Power and Energy Meter Console, official product page and manual.
 - Thorlabs, S121C Standard Photodiode Power Sensor, official product page and calibration documentation.

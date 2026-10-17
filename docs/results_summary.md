@@ -124,7 +124,7 @@ Pulse energy can be calculated from an independent average-power measurement:
 E_pulse = P_average / f_rep
 ```
 
-Numerical average powers were not supplied, so the project leaves pulse energies blank in `outputs/average_power_inputs.csv`. Peak power is not supported because a trustworthy optical pulse duration and shape are missing.
+Average powers were measured with a Thorlabs PM100D/S121C (see [Power measurements and pulse energies](#power-measurements-and-pulse-energies) below): the 65 ns mode gives 1.65–1.70 nJ per pulse, and the picosecond and 1 ns modes give lower bounds of 6.75 pJ and 47.0 pJ. Peak power is not supported because a trustworthy optical pulse duration and shape are missing.
 
 ## 3. Spectral characterization
 
@@ -199,14 +199,14 @@ The narrow CW and 65 ns peaks near 1059 to 1061 nm lie within the GSL106A manufa
 | Picosecond spectral FWHM 8.49 to 9.61 nm | Yes, with response caveat | Broadband spectral intensity width |
 | 0.170 to 0.192 ps Gaussian transform limit | Yes as a lower bound | Not an actual measured temporal pulse width |
 | Absolute near-1064 nm peak position | Not yet | Requires a near-IR reference or calibration residuals spanning the region |
-| Pulse energy | After average powers are entered | Use average power divided by measured repetition rate |
+| Pulse energy | Yes | 1.65–1.70 nJ (65 ns mode); lower bounds of 6.75 pJ (ps) and 47.0 pJ (1 ns), from average power / repetition rate |
 | Peak power | No | Optical duration/shape and full calibration are unavailable |
 
 ## 5. Most valuable follow-up measurements
 
 1. Repeat the focused spatial scan with attenuation chosen to eliminate primary-lobe saturation at every z. Record a matched native dark frame, stage resolution/backlash, lens part number/orientation, and at least ten positions extending beyond two estimated Rayleigh ranges on both sides of the waist.
 2. Use a detector with a measured response appropriate to the 65 ns mode. Use a fast photodiode/sampling system for the 1 ns mode and an autocorrelator, cross-correlator, or FROG-class instrument for the picosecond mode.
-3. Enter the independently measured average powers for each pulsed mode to obtain pulse energy. Record power-meter model/calibration and measurement repeatability.
+3. Repeat the pulsed-mode average-power readings with recorded repeatability, so the picosecond and 1 ns pulse energies become values rather than lower bounds.
 4. Calibrate the spectrometer with one or more traceable lines near 1064 nm and save calibration residuals. Measure an instrument line-spread function at each grating/slit setting used for linewidth claims.
 5. For broadband spectral shape, record grating blaze/order-sorting configuration and apply a characterized wavelength-dependent system-response correction.
 
@@ -220,9 +220,9 @@ Use statements such as:
 - "Absolute wavelength accuracy near 1064 nm was not independently validated because calibration used visible mercury lines only."
 
 
-# Final power, calibration, and completeness update (Version 3)
+## 7. Power, calibration and completeness
 
-## Power measurements and pulse energies
+### Power measurements and pulse energies
 
 Power was measured with a Thorlabs PM100D console and S121C sensor. For the GSL106A, the sensor was placed in free space immediately after the F280APC-1064 fiber collimator and before any reflective ND attenuation. The notation is preserved exactly: `>` is a strict lower bound and `~` denotes an approximate value.
 
@@ -236,10 +236,10 @@ Power was measured with a Thorlabs PM100D console and S121C sensor. For the GSL1
 
 These pulse energies follow directly from E_pulse = P_avg / f_rep. Peak powers are intentionally not reported as measurements because the optical pulse durations and pulse shapes were not resolved by the PDA36A/oscilloscope chain.
 
-## Wavelength calibration consequence
+### Wavelength calibration consequence
 
 Each grating was checked with Hg lines at 435.8 nm and 546.1 nm by applying wavelength offsets until the peaks matched to four significant figures. This makes the 532 nm region much better anchored than the 1064 nm region. With no traceable line near 1064 nm, the absolute center wavelengths around 1059-1061 nm remain plausible but unverified. The broadband picosecond spectral width is more robust than its absolute center because a nearly constant wavelength offset has little effect on FWHM.
 
-## Completeness
+### Completeness
 
 The original archive SHA-256 is `c58900255d515fab38bb8883aa2cf632de8d63608b10f0956d7ba76f622d03f2`. The archive contains 119 non-directory entries. The complete file-level catalog, CRC values, available SHA-256 values, domain assignments, and traceability notes are provided in `outputs/source_data_inventory.csv` and `outputs/file_to_result_traceability.csv`. No supplied acquisition file was intentionally discarded.

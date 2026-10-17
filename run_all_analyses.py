@@ -35,6 +35,15 @@ ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / "outputs"
 
 
+def _average_powers_entered() -> bool:
+    """True once every pulsed mode has a measured average power in average_power_inputs.csv."""
+    path = OUTPUT / "average_power_inputs.csv"
+    if not path.exists():
+        return False
+    powers = pd.read_csv(path)
+    return bool(len(powers)) and bool(powers["power_low_mW"].notna().all())
+
+
 def _write(frame: pd.DataFrame, name: str) -> Path:
     path = OUTPUT / name
     frame.to_csv(path, index=False)
@@ -239,7 +248,7 @@ def integrated_results(
             "optical_ps_and_1ns_width_reportable": False,
             "optical_65ns_width_reportable": False,
             "intrinsic_timing_jitter_reportable": False,
-            "pulse_energy_ready": False,
+            "pulse_energy_ready": _average_powers_entered(),
         },
         "spectral": {
             "spectra": int(len(spectral)),

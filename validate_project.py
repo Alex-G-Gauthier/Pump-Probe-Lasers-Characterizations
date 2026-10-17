@@ -1,4 +1,12 @@
-"""Validate parsers, derived outputs, numerical regressions, figures, and notebooks."""
+"""Check the project: saved results, key numbers, figures and notebooks.
+
+    python validate_project.py                      # works without the raw data
+    python validate_project.py --data-root PATH     # also re-checks the raw-file parsers
+
+The raw measurement archive (1.1 GB) is not in the repository. Without it, the parser
+checks are skipped and everything else (the saved outputs, the numbers quoted in the
+README, the figures and the notebooks) is still checked.
+"""
 
 from __future__ import annotations
 
@@ -29,6 +37,7 @@ EXPECTED_NOTEBOOKS = [
     "02_Temporal_1064nm",
     "03_Spectral_532_1064nm",
     "04_Integrated_Summary",
+    "05_Complete_Report_and_Data_Audit",
 ]
 
 EXPECTED_FIGURES = [
@@ -98,8 +107,21 @@ def main() -> int:
     args = parser.parse_args()
 
     root = Path(__file__).resolve().parent
-    data = args.data_root.expanduser().resolve() if args.data_root else find_data_root(root)
+    try:
+        data = args.data_root.expanduser().resolve() if args.data_root else find_data_root(root)
+    except FileNotFoundError:
+        data = None
+    if data is not None:
+        _check_raw_data(data)
+    else:
+        print("Raw data not found: skipping parser checks (saved outputs are still checked).")
 
+    _check_outputs(root)
+    print("Validation passed")
+    return 0
+
+
+def _check_raw_data(data: Path) -> None:
     raw_files = sorted((data / "532nm_Spatial" / "Beam").glob("*.raw"))
     png_files = sorted(data.glob("532nm_*Focal*/*.png"))
     scope_files = sorted((data / "Pulse_Data").rglob("*.csv"))
@@ -124,7 +146,13 @@ def main() -> int:
     assert spectrum["sample_count"] > 10
     assert spectrum["fwhm_nm"] > 0
     assert len(arrays["wavelength_nm"]) == spectrum["sample_count"]
+    print(
+        f"Raw data OK ({data}): {len(raw_files)} RAW, {len(png_files)} supplemental PNG, "
+        f"{len(scope_files)} scope CSV, {len(spectral_files)} spectra"
+    )
 
+
+def _check_outputs(root: Path) -> None:
     loaded: dict[str, pd.DataFrame] = {}
     for name, expected_rows in EXPECTED_OUTPUT_ROWS.items():
         path = root / "outputs" / name
@@ -190,28 +218,17 @@ def main() -> int:
     assert integrated["spectral"]["absolute_1064_wavelength_validated"] is False
 
     for stem in EXPECTED_NOTEBOOKS:
-        clean = root / f"{stem}.ipynb"
-        executed = root / f"{stem}.executed.ipynb"
-        assert clean.exists(), f"Missing clean notebook: {clean.name}"
-        assert executed.exists(), f"Missing executed notebook: {executed.name}"
-        _validate_notebook(clean, require_execution=False)
-        _validate_notebook(executed, require_execution=True)
+        notebook = root / "notebooks" / f"{stem}.ipynb"
+        assert notebook.exists(), f"Missing notebook: {notebook.name}"
+        _validate_notebook(notebook, require_execution=True)
 
     for name in EXPECTED_FIGURES:
         path = root / "figures" / name
         assert path.exists() and path.stat().st_size > 10_000, f"Missing or empty figure: {path}"
 
-    print("Validation passed")
-    print(f"Data root: {data}")
-    print(
-        "Files: "
-        f"{len(raw_files)} RAW, {len(png_files)} supplemental PNG, "
-        f"{len(scope_files)} scope CSV, {len(spectral_files)} spectra"
-    )
-    print(f"Outputs: {len(EXPECTED_OUTPUT_ROWS)} tabular products + integrated_results.json")
-    print(f"Notebooks: {len(EXPECTED_NOTEBOOKS)} clean + {len(EXPECTED_NOTEBOOKS)} executed; no error outputs")
-    print(f"Figures: {len(EXPECTED_FIGURES)} publication-resolution PNG files")
-    return 0
+    print(f"Outputs: {len(EXPECTED_OUTPUT_ROWS)} tables + integrated_results.json")
+    print(f"Notebooks: {len(EXPECTED_NOTEBOOKS)} executed, no error outputs")
+    print(f"Figures: {len(EXPECTED_FIGURES)} PNG files")
 
 
 if __name__ == "__main__":

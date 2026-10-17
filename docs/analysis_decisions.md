@@ -84,7 +84,7 @@ CH3 edge residuals and CH3-to-CH1 peak delays include the function generator, tr
 
 ### 3.7 Power and energy
 
-Absolute detector-derived power remains disabled because responsivity and optical attenuation were not supplied. Independently measured average power can still produce pulse energy through Pavg/f. Peak power remains blocked until optical pulse duration and temporal shape are established.
+Absolute detector-derived power remains disabled because responsivity and optical attenuation were not supplied. Pulse energy instead comes from the independently measured average power through Pavg/f. Peak power remains blocked until optical pulse duration and temporal shape are established.
 
 ## 4. Spectral definitions and choices
 
@@ -139,12 +139,12 @@ These are ideal transform-limited intensity-duration lower bounds. They do not d
 These labels appear in output tables and notebook narrative so downstream users do not have to infer validity from file names alone.
 
 
-## Version 3 final reporting decisions
+## Power and calibration reporting decisions
 
 - Inequality symbols from the laboratory notes are preserved as bounds; lower-bound powers are never converted into equality estimates.
 - The 65 ns power is represented as the observed approximate interval 330-340 uW, with 333 uW retained as the original approximate reading.
 - Pulse energy is derived from average power and 200 kHz repetition rate. Peak power is blocked unless a trustworthy optical temporal profile is available.
 - The PM100D/S121C manufacturer specification is not substituted for a measurement-specific uncertainty budget. No combined or expanded uncertainty is invented.
 - The Hg calibration at 435.8 and 546.1 nm is treated as a visible-region offset calibration. Absolute accuracy near 1064 nm is explicitly unverified without a near-IR reference.
-- The roughly two-minute warm-up is documented as a possible contributor to drift and session-to-session reproducibility.
+- The warm-up of more than two minutes is documented as a possible contributor to drift and session-to-session reproducibility.
 - All supplied files are catalogued. Files that do not map one-to-one to a numerical table remain represented in the source inventory and domain contact sheets.
